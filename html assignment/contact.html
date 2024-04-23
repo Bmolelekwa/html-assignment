@@ -7,7 +7,7 @@
 </head>
 <style>
     body {
-        background-color:red
+        /* background-color:red */
     }
 
 
@@ -59,6 +59,59 @@
         display: flex;
         flex-direction: column;
     }
+
+    .errorMessage{
+    
+    font-size: .9rem;
+    font-weight: 600;
+    font-family: monospace;
+}
+.formDetails.success input {
+    border-color: #09c372;
+    outline: none;
+  }
+
+  .formDetails.error input {
+    border-color: #f2070e;
+  }
+  .formDetails.error textarea {
+    border-color: #f2070e;
+  }
+  #myForm{
+    width: 90%;
+    margin: 1rem auto;
+}
+
+/* .formDetails{
+    margin: 1rem 0;
+} */
+
+label{
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    
+}
+
+input{
+    width: 100%;
+    padding: .6rem 0;
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus{
+    outline: 1px solid #064247;
+}
+button{
+    margin: 1.1rem 0;
+    background-color: #16dcee;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: .8rem 0;
+    width: 100%;
+}
 </style>
 <body>
     <div class="nav">
@@ -105,25 +158,30 @@
     <h3>Contact Form</h3>
 
     <div class="container">
-        <form action="action_page.php">
-      
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-      
-          <label for="email address"> email address
-          <input id="text" id="email" name="Enter email" placeholder="email Us.." width="500px">
+        <form action="https://formspree.io/f/mjvnjeer" method="post" id="myForm">
+            <div class="formDetails">
+                <label for="name">Name:</label><br/>
+                <input type="text" id="name" name="name">
+                <div class="errorMessage"></div>
+            </div>
+  
+            <div class="formDetails">
+                  <label for="email">Email:</label><br/>
+                  <input type="email" id="email" name="email">
+                  <div class="errorMessage"></div>
+              </div>
+  
+            <div class="formDetails">
+                  <label for="message">Message:</label><br/>
+                  <textarea id="message" name="message" rows="4" >
+                      
+                      </textarea>
+                  <div class="errorMessage"></div>
+              </div>
             
-          </input>
-      <br/>
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Submit">
+              <button id="button" type="submit">Submit</button></form>
 
-        
+        <script src="./contact.js"></script>
 </body>
 </html>
 
